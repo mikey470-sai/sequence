@@ -71,13 +71,30 @@ export default function Header() {
               <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-brand-cyan scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
             </a>
           ))}
-          {/* Theme Toggle Button */}
+          {/* Theme Toggle Switch */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 text-zinc-300 hover:text-white transition-colors duration-200 pointer-events-auto"
-            aria-label="Toggle Theme"
+            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${
+              theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
+            }`}
+            aria-label="Toggle Theme Mode"
           >
-            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            <Sun className={`w-3 h-3 absolute left-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-30 text-zinc-600" : "opacity-0"}`} />
+            <Moon className={`w-3 h-3 absolute right-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-0" : "opacity-30 text-zinc-500"}`} />
+            
+            <motion.div
+              layout
+              transition={{ type: "spring", stiffness: 700, damping: 30 }}
+              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${
+                theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
+              }`}
+            >
+              {theme === "dark" ? (
+                <Moon className="w-2.5 h-2.5 text-white fill-current" />
+              ) : (
+                <Sun className="w-2.5 h-2.5 text-[#121212]" />
+              )}
+            </motion.div>
           </button>
           
           <a
@@ -97,12 +114,30 @@ export default function Header() {
 
         {/* Mobile menu trigger and toggle */}
         <div className="flex items-center gap-3 md:hidden">
+          {/* Theme Toggle Switch */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 text-zinc-300 hover:text-white transition-colors duration-200 pointer-events-auto"
-            aria-label="Toggle Theme"
+            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${
+              theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
+            }`}
+            aria-label="Toggle Theme Mode"
           >
-            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            <Sun className={`w-3 h-3 absolute left-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-30 text-zinc-600" : "opacity-0"}`} />
+            <Moon className={`w-3 h-3 absolute right-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-0" : "opacity-30 text-zinc-500"}`} />
+            
+            <motion.div
+              layout
+              transition={{ type: "spring", stiffness: 700, damping: 30 }}
+              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${
+                theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
+              }`}
+            >
+              {theme === "dark" ? (
+                <Moon className="w-2.5 h-2.5 text-white fill-current" />
+              ) : (
+                <Sun className="w-2.5 h-2.5 text-[#121212]" />
+              )}
+            </motion.div>
           </button>
           
           <button
