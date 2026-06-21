@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import FunnyRobot from "@/components/FunnyRobot";
 
 export default function Home() {
   return (
@@ -32,6 +33,9 @@ export default function Home() {
 
       {/* Editorial Contact & About Footer */}
       <Footer />
+
+      {/* Floating Interactive Robot Widget */}
+      <FunnyRobot />
     </div>
   );
 }
