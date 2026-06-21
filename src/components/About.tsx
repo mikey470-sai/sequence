@@ -70,7 +70,7 @@ export default function About() {
             >
               <Image
                 src="/IMG-20260215-WA0016.jpg"
-                alt="Sai Kumaru Naidu"
+                alt="Sai Naidu"
                 fill
                 sizes="(max-width: 768px) 340px, 340px"
                 priority
@@ -92,14 +92,14 @@ export default function About() {
           {/* Column 2: Biography Text */}
           <div className="lg:col-span-4 flex flex-col justify-center">
             <h3 className="font-display font-bold text-xl text-white mb-6 uppercase tracking-wide">
-              Sai Kumaru Naidu
+              Sai Naidu
             </h3>
             <div className="font-sans text-zinc-400 text-sm md:text-base leading-relaxed space-y-6 font-light">
               <p>
-                Hello! I'm <strong className="text-brand-cyan font-medium">Sai Kumaru Naidu</strong>, a passionate Computer Science graduate from <strong className="text-white font-medium">Vignan's Institute of Information Technology</strong>, Visakhapatnam.
+                Hello! I'm <strong className="text-brand-cyan font-medium">Sai Naidu</strong>, a Computer Science Engineering student at <strong className="text-white font-medium">Vignan's Institute of Information Technology</strong>, Visakhapatnam.
               </p>
               <p>
-                Having successfully completed my professional <strong className="text-white font-medium">Python Full Stack Training</strong> at <strong className="text-brand-purple font-medium">Codegnan IT Solutions</strong>, I am a highly enthusiastic <strong className="text-brand-cyan font-medium">AI Agent Developer</strong>. I am ready to secure exciting career opportunities where I can build autonomous systems, design intelligent workflows, and leverage AI agent frameworks.
+                I am highly passionate about <strong className="text-brand-cyan font-medium">Artificial Intelligence</strong>, <strong className="text-brand-purple font-medium">Machine Learning</strong>, <strong className="text-white font-medium">AI Agents</strong>, and <strong className="text-brand-cyan font-medium">Full Stack Development</strong>. I continuously learn modern technologies and build projects to strengthen my practical skills.
               </p>
               <p>
                 When I'm not coding, I design cinematic AI art and visual content on Instagram. You can follow my creative journey here:

@@ -39,7 +39,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           Available for Work
         </span>
         <h1 className="font-display font-black text-5xl md:text-7xl tracking-tight text-white mb-6 leading-none">
-          SAI KUMARU NAIDU
+          SAI NAIDU
         </h1>
         <p className="font-sans text-zinc-400 text-sm md:text-lg tracking-[0.3em] uppercase font-light">
           Full Stack Developer &amp; AI Agent Enthusiast

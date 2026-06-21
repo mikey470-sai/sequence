@@ -109,7 +109,7 @@ export default function Footer() {
 
         {/* Bottom border & copyright */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pt-8 border-t border-zinc-900/60 text-zinc-600 text-xs font-mono tracking-wider">
-          <p>© 2026 Sai Kumaru. Designed &amp; Built with ❤️</p>
+          <p>© 2026 Sai Naidu. Designed &amp; Built with ❤️</p>
           <p className="mt-4 md:mt-0 flex items-center gap-2">
             <span>BUILT WITH NEXT.JS 16 &amp; CANVAS</span>
           </p>

@@ -1,18 +1,48 @@
 {
-  "name": "Sai Kumaru Naidu",
-  "education": "B.Tech – Computer Science (2026), Vignan's Institute of Information Technology",
-  "experience": "6 Months training at Codegnan IT Solutions (Python Full Stack Development)",
+  "name": "Sai Naidu",
+  "education": {
+    "degree": "B.Tech",
+    "branch": "Computer Science Engineering",
+    "graduation_year": 2026,
+    "college": "Vignan's Institute of Information Technology"
+  },
   "skills": [
     "Python",
-    "Flask",
-    "MySQL",
+    "Full Stack Development",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "AI Agents",
     "HTML",
-    "React",
-    "JavaScript",
     "CSS",
-    "AI Agent",
-    "Machine Learning"
+    "JavaScript",
+    "Git",
+    "SQL"
   ],
+  "interests": [
+    "AI Engineering",
+    "Machine Learning",
+    "Generative AI",
+    "Agentic AI Systems",
+    "Software Development"
+  ],
+  "current_focus": [
+    "Building AI Agents",
+    "Learning Machine Learning",
+    "Improving Full Stack Development Skills",
+    "Developing Real-World Projects"
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio",
+      "description": "Portfolio website showcasing skills, projects, and achievements."
+    }
+  ],
+  "career_goal": {
+    "short_term": "Get a software engineering or AI-related role.",
+    "long_term": "Become an AI Engineer and build impactful AI products."
+  },
+  "about": "Sai Naidu is a Computer Science Engineering student passionate about Artificial Intelligence, Machine Learning, AI Agents, and Full Stack Development. He continuously learns modern technologies and builds projects to strengthen his practical skills.",
+  "experience": "6 Months training at Codegnan IT Solutions (Python Full Stack Development)",
   "certifications": [
     "Relational Database Basics",
     "Data Analytics on AWS",
@@ -23,9 +53,8 @@
   "achievements": [
     "NCC Certification 13A Batch",
     "Hackathon Organizer",
-    "CodeChef 1-Star"
+    "CodeChef 1-Star Rating"
   ],
-  "career_interests": "Deep in AI, Machine Learning, and developing autonomous AI Agent projects",
   "contact": {
     "email": "nsai60224@email.com",
     "phone": "+91 98765 43210"

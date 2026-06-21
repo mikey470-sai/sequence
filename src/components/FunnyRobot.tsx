@@ -101,8 +101,12 @@ export default function FunnyRobot() {
       return "Sai's certified credentials and achievements:\n\n📜 **Certifications:**\n• Relational Database Basics\n• Data Analytics on AWS\n• Cisco: Switching, Routing & Wireless Essentials\n• Cisco: Introduction to Networks\n• Core Organizing Team Member for College Tech Events\n\n🏆 **Achievements:**\n• NCC Certification (13A Batch)\n• Hackathon Organizer & Developer\n• CodeChef 1-Star Rating";
     }
     
+    if (query.includes("personal portfolio") || query.includes("portfolio website") || query.includes("this website") || query.includes("this portfolio")) {
+      return "**Personal Portfolio**: This website showcases Sai's projects, skills, and achievements. It is built with Next.js 16 (Turbopack), React 19, Framer Motion, and Tailwind CSS v4. It features a custom WebGL scroll-linked canvas background, manual light/dark themes, and Aura AI—the glassmorphic chat assistant widget you are talking to right now!";
+    }
+    
     if (query.includes("project") || query.includes("portfolio") || query.includes("work")) {
-      return "Sai has built several professional-grade projects:\n\n• 🚗 **RTO Prediction Engine** (LightGBM, FastAPI, Railway, MLflow)\n• 🧠 **ML-Powered Data Pipeline** (Random Forest, SVM, OpenCV, PostgreSQL)\n• 📊 **Real-Time Analytics Dashboard** (Flask-SocketIO, WebSockets, Docker)\n• 🛒 **Microservices Backend** (FastAPI, Saga Transaction Rollback)\n• 🎬 **Sentiment Analyzer** (NLP TF-IDF, Logistic Regression, 90.21% accuracy)\n• 👁️ **CrowdWatch Stadium Monitor** (YOLOv8, Computer Vision, React, FastAPI)\n\nWhich one would you like to know more about?";
+      return "Sai has built several professional-grade projects:\n\n• 💻 **Personal Portfolio** (Next.js 16, React 19, Framer Motion, Tailwind CSS)\n• 🚗 **RTO Prediction Engine** (LightGBM, FastAPI, Railway, MLflow)\n• 🧠 **ML-Powered Data Pipeline** (Random Forest, SVM, OpenCV, PostgreSQL)\n• 📊 **Real-Time Analytics Dashboard** (Flask-SocketIO, WebSockets, Docker)\n• 🛒 **Microservices Backend** (FastAPI, Saga Transaction Rollback)\n• 👁️ **CrowdWatch Stadium Monitor** (YOLOv8, Computer Vision, React, FastAPI)\n\nWhich one would you like to know more about?";
     }
 
     if (query.includes("rto") || query.includes("vehicle")) {
@@ -217,7 +221,7 @@ export default function FunnyRobot() {
       {
         id: "cleared-initial",
         sender: "bot",
-        text: "History cleared! Let's start fresh. What can I tell you about Sai Kumaru Naidu?",
+        text: "History cleared! Let's start fresh. What can I tell you about Sai Naidu?",
         timestamp: new Date()
       }
     ]);

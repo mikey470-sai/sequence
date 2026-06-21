@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sai Kumaru Naidu — Full Stack Developer & AI Agent Enthusiast",
-  description: "Personal portfolio of Sai Kumaru Naidu, a Computer Science graduate specializing in Python Full Stack Development, AI Agents, and intelligent web systems.",
+  title: "Sai Naidu — Full Stack Developer & AI Agent Enthusiast",
+  description: "Personal portfolio of Sai Naidu, a Computer Science graduate specializing in Python Full Stack Development, AI Agents, and intelligent web systems.",
 };
 
 export default function RootLayout({
