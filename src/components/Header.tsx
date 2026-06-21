@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -16,6 +16,23 @@ export default function Header() {
       setIsScrolled(false);
     }
   });
+
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const isLight = document.documentElement.classList.contains("light");
+    setTheme(isLight ? "light" : "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("light");
+      setTheme("light");
+    } else {
+      document.documentElement.classList.remove("light");
+      setTheme("dark");
+    }
+  };
 
   const navLinks = [
     { name: "About", href: "#about" },
@@ -54,6 +71,15 @@ export default function Header() {
               <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-brand-cyan scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
             </a>
           ))}
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 text-zinc-300 hover:text-white transition-colors duration-200 pointer-events-auto"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+          
           <a
             href="/Sai_Kumaru_Naidu_Resume.pdf"
             download
@@ -69,14 +95,24 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Mobile menu trigger */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-          className="md:hidden text-zinc-400 hover:text-white focus:outline-none pointer-events-auto"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile menu trigger and toggle */}
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 text-zinc-300 hover:text-white transition-colors duration-200 pointer-events-auto"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+          
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+            className="text-zinc-400 hover:text-white focus:outline-none pointer-events-auto"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
 
       </div>
 

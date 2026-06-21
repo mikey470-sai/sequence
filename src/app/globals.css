@@ -82,3 +82,131 @@ body {
   background: #00f0ff;
   color: #121212;
 }
+
+/* ==========================================
+   Light Theme Core Overrides
+   ========================================== */
+:root.light {
+  --background: #f9fafb;
+  --foreground: #111827;
+}
+
+:root.light body {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Sections Backgrounds */
+:root.light #about,
+:root.light #contact {
+  background-color: #ffffff !important;
+}
+
+:root.light #projects,
+:root.light main {
+  background-color: #f9fafb !important;
+}
+
+/* Header adaptation */
+:root.light header {
+  background-color: rgba(249, 250, 251, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:root.light header a,
+:root.light header span {
+  color: #111827 !important;
+}
+
+:root.light header a:hover {
+  color: #00f0ff !important;
+}
+
+/* Text Overrides */
+:root.light h2,
+:root.light h3,
+:root.light h4,
+:root.light .text-white,
+:root.light span.text-white {
+  color: #111827 !important;
+}
+
+:root.light p,
+:root.light .text-zinc-300,
+:root.light .text-zinc-400 {
+  color: #374151 !important;
+}
+
+:root.light .text-zinc-500 {
+  color: #6b7280 !important;
+}
+
+/* Background numbers like '01', '03' */
+:root.light span.text-zinc-900 {
+  color: #e5e7eb !important;
+}
+
+/* Dividers & Borders */
+:root.light .bg-zinc-900,
+:root.light .border-zinc-900,
+:root.light .border-zinc-800 {
+  border-color: #e5e7eb !important;
+  background-color: #e5e7eb !important;
+}
+
+:root.light .divide-zinc-900 > * {
+  border-color: #e5e7eb !important;
+}
+
+/* Glass Cards and Fallbacks */
+:root.light .glass-card {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+  color: #111827 !important;
+}
+
+:root.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 0 25px rgba(0, 240, 255, 0.08) !important;
+}
+
+/* Project covers text indicators */
+:root.light .bg-zinc-950 {
+  background-color: #e5e7eb !important;
+}
+
+:root.light .bg-zinc-900\/10 {
+  background: transparent !important;
+}
+
+:root.light .text-zinc-400.font-mono {
+  color: #4b5563 !important;
+}
+
+/* Contact Form Input Elements */
+:root.light input,
+:root.light textarea {
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+:root.light input:focus,
+:root.light textarea:focus {
+  border-color: #00f0ff !important;
+  outline: none;
+}
+
+/* Mobile Menu Panel */
+:root.light .fixed.inset-x-0.top-\[60px\] {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+
+:root.light .fixed.inset-x-0.top-\[60px\] a {
+  color: #111827 !important;
+}
