@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProjectItem {
   id: string;
@@ -27,7 +28,7 @@ const projects: ProjectItem[] = [
     tags: ["LightGBM", "FastAPI", "Railway", "MLflow", "Docker"],
     image: "/project_rto.png",
     icon: "🚗",
-    link: "#",
+    link: "https://mikey470-sai.github.io/rto-prediction/",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-brand-cyan to-brand-purple",
   },
@@ -39,7 +40,7 @@ const projects: ProjectItem[] = [
     tags: ["Scikit-learn", "Flask", "OpenCV", "PostgreSQL"],
     image: "/project_pipeline.png",
     icon: "🧠",
-    link: "#",
+    link: "/projects/pipeline",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-brand-purple to-brand-accent",
   },
@@ -51,7 +52,7 @@ const projects: ProjectItem[] = [
     tags: ["Flask-SocketIO", "WebSockets", "JWT Auth", "Docker", "Nginx"],
     image: "/project_analytics.png",
     icon: "📊",
-    link: "#",
+    link: "/projects/analytics",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-emerald-400 to-brand-cyan",
   },
@@ -63,7 +64,7 @@ const projects: ProjectItem[] = [
     tags: ["Microservices", "FastAPI", "Docker", "GitHub Actions"],
     image: "/project_microservices.png",
     icon: "🛒",
-    link: "#",
+    link: "/projects/microservices",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-amber-400 to-brand-accent",
   },
@@ -75,7 +76,7 @@ const projects: ProjectItem[] = [
     tags: ["NLP", "NLTK", "Scikit-learn", "TF-IDF"],
     image: "/project_sentiment.png",
     icon: "🎬",
-    link: "#",
+    link: "/projects/sentiment",
     gitLink: "https://github.com/mikey470-sai/imdb-sentiment-analysis",
     accent: "from-red-500 to-brand-purple",
   },
@@ -87,7 +88,7 @@ const projects: ProjectItem[] = [
     tags: ["EDA", "Pandas", "NumPy", "Seaborn", "Matplotlib"],
     image: "/project_churn.png",
     icon: "📊",
-    link: "#",
+    link: "/projects/churn",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-blue-500 to-emerald-400",
   },
@@ -99,7 +100,7 @@ const projects: ProjectItem[] = [
     tags: ["YOLOv8", "Computer Vision", "React", "PostgreSQL", "FastAPI"],
     image: "/project_crowdwatch.png",
     icon: "👁️",
-    link: "#",
+    link: "/projects/crowdwatch",
     gitLink: "https://github.com/mikey470-sai",
     accent: "from-brand-cyan to-indigo-500",
   },
@@ -111,7 +112,7 @@ const projects: ProjectItem[] = [
     tags: ["Vanilla JS", "Browser API", "HTML5", "CSS3 Reset"],
     image: "/project_nophish.png",
     icon: "🛡️",
-    link: "#",
+    link: "/projects/nophish",
     gitLink: "https://github.com/mikey470-sai/NOPhish",
     accent: "from-teal-400 to-brand-cyan",
   },
@@ -123,7 +124,7 @@ const projects: ProjectItem[] = [
     tags: ["React", "Python", "FastAPI", "SQLAlchemy", "Tailwind CSS"],
     image: "/project_taskmanager.png",
     icon: "📋",
-    link: "#",
+    link: "https://task-manager-blush-alpha.vercel.app/login",
     gitLink: "https://github.com/mikey470-sai/task-manager",
     accent: "from-indigo-500 to-brand-purple",
   },
@@ -243,13 +244,25 @@ export default function Projects() {
                     <span>Source Code</span>
                   </a>
                   
-                  <a
-                    href={project.link}
-                    className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors duration-300 text-xs font-semibold pointer-events-auto group/btn"
-                  >
-                    <span>Live Demo</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-brand-cyan transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </a>
+                  {project.link.startsWith("/") ? (
+                    <Link
+                      href={project.link}
+                      className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors duration-300 text-xs font-semibold pointer-events-auto group/btn"
+                    >
+                      <span>Live Demo</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-brand-cyan transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors duration-300 text-xs font-semibold pointer-events-auto group/btn"
+                    >
+                      <span>Live Demo</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-brand-cyan transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </a>
+                  )}
                 </div>
 
               </div>
