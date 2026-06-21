@@ -43,7 +43,6 @@ export default function FunnyRobot() {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
         const rect = aboutSection.getBoundingClientRect();
-        // Visible when the bottom of About section is scrolled past the top of viewport
         if (rect.bottom < 120) {
           setIsVisible(true);
         } else {
@@ -54,7 +53,6 @@ export default function FunnyRobot() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Initial check
     handleScroll();
     
     return () => window.removeEventListener("scroll", handleScroll);
@@ -107,7 +105,7 @@ export default function FunnyRobot() {
           <motion.div
             animate={{ x: positionOffset.x, y: positionOffset.y }}
             transition={{ type: "spring", stiffness: 180, damping: 15 }}
-            className="flex flex-col items-end"
+            className="flex flex-col items-end animate-fade-in"
           >
 
             {/* Speech Bubble */}
@@ -140,7 +138,7 @@ export default function FunnyRobot() {
                 className="pointer-events-auto cursor-pointer"
               >
                 
-                {/* 3D Isometric Card Container with rotation */}
+                {/* 3D Isometric Card Outer Container (Gradient Border Wrapper) */}
                 <motion.div
                   animate={{ rotateY: spinDegree }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
@@ -153,38 +151,46 @@ export default function FunnyRobot() {
                     transformStyle: "preserve-3d",
                     transform: "rotateX(15deg) rotateY(-15deg)"
                   }}
-                  className="relative flex flex-col items-center justify-center p-4 rounded-2xl border border-brand-cyan/40 hover:border-brand-cyan bg-[#141416]/90 shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_20px_rgba(0,240,255,0.06)] hover:shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_25px_rgba(0,240,255,0.25)] backdrop-blur-md transition-all duration-300"
+                  className="relative p-[1.5px] rounded-2xl bg-gradient-to-tr from-brand-cyan via-brand-purple to-brand-accent shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_20px_rgba(0,240,255,0.06)] hover:shadow-[5px_5px_35px_rgba(0,0,0,0.5),_0_0_25px_rgba(189,0,255,0.35)] transition-all duration-300"
                 >
                   
-                  {/* Glowing Antenna - translateZ for depth */}
-                  <div 
-                    style={{ transform: "translateZ(15px)" }}
-                    className="w-1.5 h-3 bg-brand-cyan/60 rounded-t-full relative flex items-center justify-center mb-1.5"
-                  >
-                    <span className="absolute -top-1 w-2.5 h-2.5 rounded-full bg-brand-purple animate-ping opacity-75" />
-                    <span className="absolute -top-1 w-2 h-2 rounded-full bg-brand-cyan shadow-glow-cyan" />
-                  </div>
-
-                  {/* 3D Styled Robo Screen / Head */}
-                  <div 
-                    style={{ transform: "translateZ(30px)" }}
-                    className="w-22 py-3 bg-[#0a0a0c] border border-zinc-800 rounded-xl flex items-center justify-center px-2 relative overflow-hidden shadow-inner"
-                  >
-                    {/* Retro line grid filter */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
+                  {/* Inner Robot Card Container */}
+                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#09090b]/95 backdrop-blur-md w-full h-full">
                     
-                    <span className="font-mono text-[11px] font-bold text-brand-cyan tracking-wider select-none filter drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
-                      {FACES[currentFace]}
-                    </span>
-                  </div>
+                    {/* Glowing Antenna - translateZ for depth */}
+                    <div 
+                      style={{ transform: "translateZ(15px)" }}
+                      className="w-1.5 h-3 bg-gradient-to-t from-brand-cyan to-brand-purple rounded-t-full relative flex items-center justify-center mb-1.5"
+                    >
+                      <span className="absolute -top-1 w-2.5 h-2.5 rounded-full bg-brand-purple animate-ping opacity-75" />
+                      <span className="absolute -top-1 w-2 h-2 rounded-full bg-gradient-to-tr from-brand-cyan to-brand-accent shadow-glow-cyan" />
+                    </div>
 
-                  {/* Robo Wheels / feet - translateZ for depth */}
-                  <div 
-                    style={{ transform: "translateZ(10px)" }}
-                    className="flex gap-4 mt-2"
-                  >
-                    <div className="w-3 h-2 bg-zinc-800 rounded-full border border-zinc-700 shadow-md" />
-                    <div className="w-3 h-2 bg-zinc-800 rounded-full border border-zinc-700 shadow-md" />
+                    {/* 3D Styled Robo Screen Frame (Inner Gradient Border) */}
+                    <div 
+                      style={{ transform: "translateZ(30px)" }}
+                      className="p-[1px] bg-gradient-to-tr from-brand-purple to-brand-accent rounded-xl"
+                    >
+                      {/* Inner Screen Display */}
+                      <div className="w-22 py-3 bg-[#070709] rounded-xl flex items-center justify-center px-2 relative overflow-hidden shadow-inner">
+                        {/* Retro line grid filter */}
+                        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
+                        
+                        <span className="font-mono text-[11px] font-bold text-brand-cyan tracking-wider select-none filter drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
+                          {FACES[currentFace]}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Robo Wheels / feet - translateZ for depth */}
+                    <div 
+                      style={{ transform: "translateZ(10px)" }}
+                      className="flex gap-4 mt-2.5"
+                    >
+                      <div className="w-3 h-2 bg-gradient-to-r from-zinc-800 to-zinc-900 rounded-full border border-zinc-700 shadow-md" />
+                      <div className="w-3 h-2 bg-gradient-to-r from-zinc-800 to-zinc-900 rounded-full border border-zinc-700 shadow-md" />
+                    </div>
+
                   </div>
 
                 </motion.div>
