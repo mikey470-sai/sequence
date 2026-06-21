@@ -144,6 +144,10 @@ export default function FunnyRobot() {
     if (query.includes("education") || query.includes("college") || query.includes("degree") || query.includes("btech") || query.includes("vignan")) {
       return "Sai holds a **B.Tech in Computer Science (2026)** from **Vignan's Institute of Information Technology** (Visakhapatnam) and completed **Python Full Stack training** at **Codegnan IT Solutions**.";
     }
+
+    if (query.includes("about sai") || query.includes("who is sai") || query.includes("tell me about sai") || query.includes("who is he") || query === "sai") {
+      return "**Sai Naidu** is a Computer Science Engineering student passionate about Artificial Intelligence, Machine Learning, AI Agents, and Full Stack Development. He continuously learns modern technologies and builds projects to strengthen his practical skills. Currently, he is focused on building AI agents, learning machine learning, and improving full-stack development skills.";
+    }
     
     if (query.includes("joke") || query.includes("funny") || query.includes("laugh") || query.includes("robot")) {
       return JOKES[Math.floor(Math.random() * JOKES.length)];
