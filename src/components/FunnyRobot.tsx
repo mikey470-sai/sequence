@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, VolumeX, Sparkles, MessageSquare } from "lucide-react";
+import { Sparkles, MessageSquare } from "lucide-react";
 
 const JOKES = [
   "Beep boop! My circuits are ticklish! 😂",
@@ -31,15 +31,33 @@ export default function FunnyRobot() {
   const [bubbleText, setBubbleText] = useState("Click me to see my microchips tingle!");
   const [showBubble, setShowBubble] = useState(true);
   const [spinDegree, setSpinDegree] = useState(0);
-  const [scale, setScale] = useState(1);
   const [isJumping, setIsJumping] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Custom offset coordinates for screen dodging/movement
+  const [positionOffset, setPositionOffset] = useState({ x: 0, y: 0 });
 
-  // Auto hide initial bubble after 6s
+  // Scroll detection to display ONLY after scrolling past About section
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowBubble(false);
-    }, 6000);
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        // Visible when the bottom of About section is scrolled past the top of viewport
+        if (rect.bottom < 120) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+          setShowBubble(false); // Hide bubble when invisible
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleRobotClick = () => {
@@ -48,15 +66,19 @@ export default function FunnyRobot() {
     setBubbleText(randomJoke);
     setShowBubble(true);
 
-    // 2. Spin robot around and scale jump
+    // 2. Dodge/Move to a random nearby position
+    const randomX = Math.floor(Math.random() * 240) - 120; // -120px to +120px
+    const randomY = Math.floor(Math.random() * 200) - 200; // -200px to 0px (vertical hop)
+    setPositionOffset({ x: randomX, y: randomY });
+
+    // 3. Spin robot on Y axis (3D feel) and jump state
     setSpinDegree((prev) => prev + 360);
     setIsJumping(true);
     setCurrentFace("excited");
 
-    // 3. Reset jump and expression after action finishes
+    // 4. Reset jump and expression after action
     setTimeout(() => {
       setIsJumping(false);
-      // Pick a cool face
       const faces: (keyof typeof FACES)[] = ["cool", "cute", "normal", "love"];
       setCurrentFace(faces[Math.floor(Math.random() * faces.length)]);
     }, 600);
@@ -67,73 +89,113 @@ export default function FunnyRobot() {
   };
 
   const handleMouseLeave = () => {
-    // Normal expression
     setCurrentFace("normal");
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end pointer-events-none select-none">
-      
-      {/* Speech Bubble */}
-      <AnimatePresence>
-        {showBubble && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="mb-3 max-w-[200px] bg-zinc-950/95 border border-zinc-800 text-zinc-200 text-[11px] p-3 rounded-2xl shadow-xl pointer-events-auto relative text-center leading-relaxed"
-          >
-            {bubbleText}
-            {/* Small speech arrow */}
-            <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Floating Robot Body */}
-      <motion.div
-        animate={isJumping ? { y: [-15, -40, 0] } : { y: [0, -8, 0] }}
-        transition={
-          isJumping
-            ? { duration: 0.6, ease: "easeInOut" }
-            : { repeat: Infinity, duration: 3, ease: "easeInOut" }
-        }
-        className="pointer-events-auto cursor-pointer"
-      >
+    <AnimatePresence>
+      {isVisible && (
         <motion.div
-          animate={{ rotate: spinDegree }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.92 }}
-          onClick={handleRobotClick}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="relative flex flex-col items-center justify-center p-3 rounded-2xl border border-brand-cyan/30 hover:border-brand-cyan bg-[#121212]/90 shadow-[0_0_20px_rgba(0,240,255,0.05)] hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] backdrop-blur-md transition-all duration-300"
+          initial={{ opacity: 0, scale: 0.5, y: 50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.5, y: 50 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end pointer-events-none select-none"
         >
-          {/* Glowing Antenna */}
-          <div className="w-1.5 h-3 bg-brand-cyan/60 rounded-t-full relative flex items-center justify-center mb-1">
-            <span className="absolute -top-1 w-2.5 h-2.5 rounded-full bg-brand-purple animate-ping opacity-75" />
-            <span className="absolute -top-1 w-2 h-2 rounded-full bg-brand-cyan shadow-glow-cyan" />
-          </div>
+          
+          {/* Animated Position Wrapper for dynamic flights */}
+          <motion.div
+            animate={{ x: positionOffset.x, y: positionOffset.y }}
+            transition={{ type: "spring", stiffness: 180, damping: 15 }}
+            className="flex flex-col items-end"
+          >
 
-          {/* Robo screen / Head */}
-          <div className="w-20 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center px-2 relative overflow-hidden">
-            {/* Grid display line pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
-            <span className="font-mono text-[11px] font-bold text-brand-cyan tracking-wider select-none">
-              {FACES[currentFace]}
-            </span>
-          </div>
+            {/* Speech Bubble */}
+            <AnimatePresence>
+              {showBubble && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: 10 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="mb-3 max-w-[200px] bg-zinc-950/95 border border-zinc-800 text-zinc-200 text-[10px] p-3 rounded-2xl shadow-xl pointer-events-auto relative text-center leading-relaxed backdrop-blur-md"
+                >
+                  {bubbleText}
+                  <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-          {/* Little Robo Wheels / feet */}
-          <div className="flex gap-4 mt-1.5">
-            <div className="w-2.5 h-1.5 bg-zinc-800 rounded-full border border-zinc-700" />
-            <div className="w-2.5 h-1.5 bg-zinc-800 rounded-full border border-zinc-700" />
-          </div>
+            {/* 3D Perspective Container */}
+            <div style={{ perspective: "800px" }}>
+              
+              {/* Floating Animation */}
+              <motion.div
+                animate={isJumping ? { y: [-15, -45, 0] } : { y: [0, -8, 0] }}
+                transition={
+                  isJumping
+                    ? { duration: 0.6, ease: "easeInOut" }
+                    : { repeat: Infinity, duration: 3, ease: "easeInOut" }
+                }
+                className="pointer-events-auto cursor-pointer"
+              >
+                
+                {/* 3D Isometric Card Container with rotation */}
+                <motion.div
+                  animate={{ rotateY: spinDegree }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={handleRobotClick}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: "rotateX(15deg) rotateY(-15deg)"
+                  }}
+                  className="relative flex flex-col items-center justify-center p-4 rounded-2xl border border-brand-cyan/40 hover:border-brand-cyan bg-[#141416]/90 shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_20px_rgba(0,240,255,0.06)] hover:shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_25px_rgba(0,240,255,0.25)] backdrop-blur-md transition-all duration-300"
+                >
+                  
+                  {/* Glowing Antenna - translateZ for depth */}
+                  <div 
+                    style={{ transform: "translateZ(15px)" }}
+                    className="w-1.5 h-3 bg-brand-cyan/60 rounded-t-full relative flex items-center justify-center mb-1.5"
+                  >
+                    <span className="absolute -top-1 w-2.5 h-2.5 rounded-full bg-brand-purple animate-ping opacity-75" />
+                    <span className="absolute -top-1 w-2 h-2 rounded-full bg-brand-cyan shadow-glow-cyan" />
+                  </div>
+
+                  {/* 3D Styled Robo Screen / Head */}
+                  <div 
+                    style={{ transform: "translateZ(30px)" }}
+                    className="w-22 py-3 bg-[#0a0a0c] border border-zinc-800 rounded-xl flex items-center justify-center px-2 relative overflow-hidden shadow-inner"
+                  >
+                    {/* Retro line grid filter */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
+                    
+                    <span className="font-mono text-[11px] font-bold text-brand-cyan tracking-wider select-none filter drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
+                      {FACES[currentFace]}
+                    </span>
+                  </div>
+
+                  {/* Robo Wheels / feet - translateZ for depth */}
+                  <div 
+                    style={{ transform: "translateZ(10px)" }}
+                    className="flex gap-4 mt-2"
+                  >
+                    <div className="w-3 h-2 bg-zinc-800 rounded-full border border-zinc-700 shadow-md" />
+                    <div className="w-3 h-2 bg-zinc-800 rounded-full border border-zinc-700 shadow-md" />
+                  </div>
+
+                </motion.div>
+
+              </motion.div>
+            </div>
+
+          </motion.div>
+
         </motion.div>
-      </motion.div>
-
-    </div>
+      )}
+    </AnimatePresence>
   );
 }
