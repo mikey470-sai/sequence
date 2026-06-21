@@ -27,6 +27,10 @@ export default function FunnyRobot() {
   // Custom offset coordinates for screen dodging/movement
   const [positionOffset, setPositionOffset] = useState({ x: 0, y: 0 });
 
+  // 3D Parallax Tilt angles
+  const [rotateX, setRotateX] = useState(12);
+  const [rotateY, setRotateY] = useState(-12);
+
   // Scroll detection to display ONLY after scrolling past About section
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +73,28 @@ export default function FunnyRobot() {
     }, 600);
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isJumping) return;
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    // Relative coordinates from center of card (-0.5 to +0.5)
+    const x = (e.clientX - rect.left) / width - 0.5;
+    const y = (e.clientY - rect.top) / height - 0.5;
+    
+    // Calculate rotation angle (max 35 degrees)
+    setRotateX(-y * 35); // tilts X-axis
+    setRotateY(x * 35);  // tilts Y-axis
+  };
+
+  const handleMouseLeave = () => {
+    // Return to default hover tilt position
+    setRotateX(12);
+    setRotateY(-12);
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -104,7 +130,7 @@ export default function FunnyRobot() {
             </AnimatePresence>
 
             {/* 3D Perspective Container */}
-            <div style={{ perspective: "800px" }}>
+            <div style={{ perspective: "1000px" }}>
               
               {/* Floating Animation */}
               <motion.div
@@ -119,28 +145,46 @@ export default function FunnyRobot() {
                 
                 {/* 3D Isometric Card Outer Container (Gradient Border Wrapper) */}
                 <motion.div
-                  animate={{ rotateY: spinDegree }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.92 }}
+                  animate={{ 
+                    rotateY: isJumping ? spinDegree : rotateY,
+                    rotateX: isJumping ? 0 : rotateX
+                  }}
+                  transition={isJumping ? { duration: 0.6, ease: "easeOut" } : { type: "tween", ease: "easeOut", duration: 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={handleRobotClick}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
                   style={{
-                    transformStyle: "preserve-3d",
-                    transform: "rotateX(15deg) rotateY(-15deg)"
+                    transformStyle: "preserve-3d"
                   }}
                   className="relative p-[1.5px] rounded-2xl bg-gradient-to-tr from-brand-cyan via-brand-purple to-brand-accent shadow-[5px_5px_30px_rgba(0,0,0,0.5),_0_0_20px_rgba(0,240,255,0.06)] hover:shadow-[5px_5px_35px_rgba(0,0,0,0.5),_0_0_25px_rgba(189,0,255,0.35)] transition-all duration-300"
                 >
                   
-                  {/* Inner Robot Card Container holding the image */}
-                  <div className="flex flex-col items-center justify-center p-1 rounded-2xl bg-[#09090b]/95 backdrop-blur-md w-24 h-24 overflow-hidden relative">
-                    <Image
-                      src="/gradient_ai_robot.png"
-                      alt="Gradient AI Robot"
-                      fill
-                      sizes="96px"
-                      className="object-cover rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  {/* Inner Robot Card Container holding the image with preserve-3d */}
+                  <div 
+                    style={{ transformStyle: "preserve-3d" }}
+                    className="flex flex-col items-center justify-center p-1 rounded-2xl bg-[#09090b]/95 backdrop-blur-md w-24 h-24 overflow-visible relative"
+                  >
+                    {/* Shadow Layer for Parallax depth */}
+                    <div 
                       style={{ transform: "translateZ(10px)" }}
+                      className="absolute inset-2 bg-black/50 blur-md rounded-2xl pointer-events-none"
                     />
+
+                    {/* Floating Robot Image pushed forward */}
+                    <div
+                      style={{ transform: "translateZ(25px)" }}
+                      className="w-full h-full relative"
+                    >
+                      <Image
+                        src="/gradient_ai_robot.png"
+                        alt="Gradient AI Robot"
+                        fill
+                        sizes="96px"
+                        className="object-cover rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-300 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
+                      />
+                    </div>
                   </div>
 
                 </motion.div>
