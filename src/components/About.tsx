@@ -159,59 +159,6 @@ export default function About() {
 
         </div>
 
-        {/* Certifications & Achievements Subsection */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-          {/* Certifications Card */}
-          <div className="glass-card rounded-2xl p-8 border border-zinc-900">
-            <h4 className="font-display font-bold text-xs tracking-widest text-brand-cyan uppercase mb-6 flex items-center gap-2">
-              <Award className="w-4.5 h-4.5" /> [ CERTIFICATIONS ]
-            </h4>
-            <ul className="space-y-4 text-zinc-400 text-sm font-light">
-              <li className="flex items-start gap-3">
-                <span className="text-brand-cyan select-none">•</span>
-                <span>Relational Database Basics</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-cyan select-none">•</span>
-                <span>Data Analytics on AWS</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-cyan select-none">•</span>
-                <span>Switching, Routing &amp; Wireless Essentials — Cisco</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-cyan select-none">•</span>
-                <span>Introduction to Networks — Cisco</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-cyan select-none">•</span>
-                <span>Core Organising Team Member — College Tech Events</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Achievements Card */}
-          <div className="glass-card rounded-2xl p-8 border border-zinc-900">
-            <h4 className="font-display font-bold text-xs tracking-widest text-brand-purple uppercase mb-6 flex items-center gap-2">
-              <Trophy className="w-4.5 h-4.5" /> [ ACHIEVEMENTS ]
-            </h4>
-            <ul className="space-y-4 text-zinc-400 text-sm font-light">
-              <li className="flex items-start gap-3">
-                <span className="text-brand-purple select-none">•</span>
-                <span>NCC Certification 13A Batch</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-purple select-none">•</span>
-                <span>Hackathon Organiser &amp; Developer</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-purple select-none">•</span>
-                <span>CodeChef 1-Star Rating</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         {/* SKILLS SUBSECTION */}
         <div id="skills" className="scroll-mt-24">
           

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
 import About from "@/components/About";
+import Certifications from "@/components/Certifications";
 import Projects from "@/components/Projects";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -23,6 +24,9 @@ export default function Home() {
         
         {/* About credentials & Skills meters section */}
         <About />
+
+        {/* Certifications and Achievements Section */}
+        <Certifications />
 
         {/* Selected Project Grid & Works Section */}
         <Projects />

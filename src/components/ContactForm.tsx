@@ -95,7 +95,7 @@ export default function ContactForm() {
         {/* Section Header */}
         <div className="flex items-center gap-6 mb-20">
           <span className="font-display font-black text-5xl md:text-7xl text-zinc-900 leading-none">
-            04
+            05
           </span>
           <div>
             <span className="text-brand-cyan font-mono text-[10px] tracking-widest uppercase block mb-1">
