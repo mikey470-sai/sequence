@@ -98,7 +98,7 @@ export default function Header() {
           </button>
           
           <a
-            href="/Sai_Kumaru_Naidu_Resume.pdf"
+            href="/Sai_Kumaru_resume.pdf"
             download
             className="text-xs font-semibold tracking-wider text-brand-purple font-mono border border-brand-purple/30 hover:border-brand-purple bg-brand-purple/5 hover:bg-brand-purple/15 px-4 py-2 rounded-full transition-all duration-300 pointer-events-auto shadow-glow-purple/10 hover:shadow-glow-purple"
           >
@@ -165,7 +165,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="/Sai_Kumaru_Naidu_Resume.pdf"
+            href="/Sai_Kumaru_resume.pdf"
             download
             onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-semibold tracking-wider text-brand-purple font-mono border border-brand-purple/40 bg-brand-purple/5 px-6 py-3 rounded-full mt-4"

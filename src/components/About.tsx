@@ -106,7 +106,7 @@ export default function About() {
             <div className="mt-8 flex flex-wrap gap-4 items-center">
               {/* Download Resume CTA */}
               <a
-                href="/Sai_Kumaru_Naidu_Resume.pdf"
+                href="/Sai_Kumaru_resume.pdf"
                 download
                 className="flex items-center gap-3 text-zinc-300 hover:text-white transition-colors duration-300 font-mono text-xs tracking-wider uppercase border border-brand-cyan/30 hover:border-brand-cyan/60 bg-brand-cyan/5 px-5 py-3 rounded-full w-fit pointer-events-auto shadow-glow-cyan/5 hover:shadow-glow-cyan/15"
               >
