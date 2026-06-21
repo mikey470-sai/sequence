@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Award, BookOpen, CheckCircle } from "lucide-react";
+import { MapPin, Mail, Award, BookOpen, CheckCircle, Phone, Trophy } from "lucide-react";
 import Image from "next/image";
 
 interface SkillItem {
@@ -13,11 +13,12 @@ interface SkillItem {
 
 const skills: SkillItem[] = [
   { name: "Python", percentage: 90, icon: "🐍" },
-  { name: "HTML & CSS", percentage: 85, icon: "🌐" },
-  { name: "Machine Learning", percentage: 80, icon: "🤖" },
+  { name: "Flask", percentage: 80, icon: "🧪" },
   { name: "MySQL", percentage: 75, icon: "🗄️" },
-  { name: "FastAPI", percentage: 78, icon: "⚡" },
-  { name: "AI Art / Video", percentage: 88, icon: "🎨" },
+  { name: "React & JS", percentage: 85, icon: "⚛️" },
+  { name: "AI Agent", percentage: 82, icon: "🤖" },
+  { name: "Machine Learning", percentage: 80, icon: "🧠" },
+  { name: "HTML & CSS", percentage: 85, icon: "🌐" }
 ];
 
 export default function About() {
@@ -27,6 +28,7 @@ export default function About() {
     { label: "Location", value: "Visakhapatnam, India", icon: <MapPin className="w-4 h-4 text-brand-cyan" /> },
     { label: "Target City", value: "Bangalore", icon: <MapPin className="w-4 h-4 text-brand-purple" /> },
     { label: "Email", value: "nsai60224@email.com", icon: <Mail className="w-4 h-4 text-brand-cyan" /> },
+    { label: "Phone", value: "+91 98765 43210", icon: <Phone className="w-4 h-4 text-brand-cyan" /> },
     { label: "Status", value: "Open to Work ✅", icon: <CheckCircle className="w-4 h-4 text-emerald-400" /> },
   ];
 
@@ -155,6 +157,59 @@ export default function About() {
             </div>
           </div>
 
+        </div>
+
+        {/* Certifications & Achievements Subsection */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+          {/* Certifications Card */}
+          <div className="glass-card rounded-2xl p-8 border border-zinc-900">
+            <h4 className="font-display font-bold text-xs tracking-widest text-brand-cyan uppercase mb-6 flex items-center gap-2">
+              <Award className="w-4.5 h-4.5" /> [ CERTIFICATIONS ]
+            </h4>
+            <ul className="space-y-4 text-zinc-400 text-sm font-light">
+              <li className="flex items-start gap-3">
+                <span className="text-brand-cyan select-none">•</span>
+                <span>Relational Database Basics</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-cyan select-none">•</span>
+                <span>Data Analytics on AWS</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-cyan select-none">•</span>
+                <span>Switching, Routing &amp; Wireless Essentials — Cisco</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-cyan select-none">•</span>
+                <span>Introduction to Networks — Cisco</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-cyan select-none">•</span>
+                <span>Core Organising Team Member — College Tech Events</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Achievements Card */}
+          <div className="glass-card rounded-2xl p-8 border border-zinc-900">
+            <h4 className="font-display font-bold text-xs tracking-widest text-brand-purple uppercase mb-6 flex items-center gap-2">
+              <Trophy className="w-4.5 h-4.5" /> [ ACHIEVEMENTS ]
+            </h4>
+            <ul className="space-y-4 text-zinc-400 text-sm font-light">
+              <li className="flex items-start gap-3">
+                <span className="text-brand-purple select-none">•</span>
+                <span>NCC Certification 13A Batch</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-purple select-none">•</span>
+                <span>Hackathon Organiser &amp; Developer</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-purple select-none">•</span>
+                <span>CodeChef 1-Star Rating</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* SKILLS SUBSECTION */}

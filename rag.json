@@ -1,0 +1,38 @@
+{
+  "name": "Sai Kumaru Naidu",
+  "education": "B.Tech – Computer Science (2026), Vignan's Institute of Information Technology",
+  "experience": "6 Months training at Codegnan IT Solutions (Python Full Stack Development)",
+  "skills": [
+    "Python",
+    "Flask",
+    "MySQL",
+    "HTML",
+    "React",
+    "JavaScript",
+    "CSS",
+    "AI Agent",
+    "Machine Learning"
+  ],
+  "certifications": [
+    "Relational Database Basics",
+    "Data Analytics on AWS",
+    "Switching, Routing & Wireless Essentials — Cisco",
+    "Introduction to Networks — Cisco",
+    "Core Organising Team Member — College Tech Events"
+  ],
+  "achievements": [
+    "NCC Certification 13A Batch",
+    "Hackathon Organizer",
+    "CodeChef 1-Star"
+  ],
+  "career_interests": "Deep in AI, Machine Learning, and developing autonomous AI Agent projects",
+  "contact": {
+    "email": "nsai60224@email.com",
+    "phone": "+91 98765 43210"
+  },
+  "links": {
+    "portfolio": "https://mikey470-sai.github.io/sequence",
+    "linkedin": "https://www.linkedin.com/in/sai-kumaru-naidu",
+    "github": "https://github.com/mikey470-sai"
+  }
+}

@@ -27,6 +27,7 @@ interface Message {
 
 const QUICK_REPLIES = [
   { label: "🛠️ Core Skills", query: "skills" },
+  { label: "📜 Certifications", query: "certifications" },
   { label: "🚀 Top Projects", query: "projects" },
   { label: "📄 Download Resume", query: "resume" },
   { label: "📧 Contact Sai", query: "contact" },
@@ -92,8 +93,12 @@ export default function FunnyRobot() {
       return "You can download Sai's latest resume by clicking the link below or using the top header button:\n\n📄 **[Sai_Kumaru_Resume.pdf](/Sai_Kumaru_Resume.pdf)**\n\nIt outlines his CS background, Python Full Stack credentials, and AI Agent development experience!";
     }
     
-    if (query.includes("skill") || query.includes("expert") || query.includes("languages") || query.includes("technolog") || query.includes("python") || query.includes("react")) {
-      return "Sai's tech skills include:\n\n• 🐍 **Python** (90%)\n• ⚡ **FastAPI / Django** (78%)\n• 🤖 **Machine Learning & AI Agents** (80%)\n• 🗄️ **MySQL / SQL databases** (75%)\n• 🌐 **HTML, CSS & React** (85%)\n• 🎨 **AI Art & Media generation** (88%)\n\nHe specializes in building intelligent web architectures and autonomous workflows!";
+    if (query.includes("skill") || query.includes("expert") || query.includes("languages") || query.includes("technolog") || query.includes("python") || query.includes("react") || query.includes("flask")) {
+      return "Sai's tech spectrum includes:\n\n• 🐍 **Python** (90%)\n• 🧪 **Flask** (80%)\n• 🗄️ **MySQL** (75%)\n• ⚛️ **React & JS** (85%)\n• 🤖 **AI Agent Development** (82%)\n• 🧠 **Machine Learning** (80%)\n• 🌐 **HTML & CSS** (85%)\n\nHe specializes in building intelligent web architectures and autonomous workflows!";
+    }
+
+    if (query.includes("certif") || query.includes("aws") || query.includes("cisco") || query.includes("achievement") || query.includes("ncc") || query.includes("hackathon") || query.includes("codechef")) {
+      return "Sai's certified credentials and achievements:\n\n📜 **Certifications:**\n• Relational Database Basics\n• Data Analytics on AWS\n• Cisco: Switching, Routing & Wireless Essentials\n• Cisco: Introduction to Networks\n• Core Organizing Team Member for College Tech Events\n\n🏆 **Achievements:**\n• NCC Certification (13A Batch)\n• Hackathon Organizer & Developer\n• CodeChef 1-Star Rating";
     }
     
     if (query.includes("project") || query.includes("portfolio") || query.includes("work")) {
@@ -128,8 +133,8 @@ export default function FunnyRobot() {
       return "**Sentiment Analyzer** models review sentiments using Scikit-Learn TF-IDF vectorization and Logistic Regression (90.21% accuracy) on IMDB datasets.";
     }
 
-    if (query.includes("contact") || query.includes("email") || query.includes("hire") || query.includes("reach") || query.includes("instagram")) {
-      return "You can get in touch with Sai:\n\n• 📧 **Email**: nsai60224@email.com\n• 📍 **Location**: Visakhapatnam, India (Target City: Bangalore)\n• 📸 **Instagram**: [@naturethe_vibes](https://instagram.com/naturethe_vibes) (Cinematic AI Art)\n\nOr feel free to send a message via the **Contact Form** on the website!";
+    if (query.includes("contact") || query.includes("email") || query.includes("hire") || query.includes("reach") || query.includes("instagram") || query.includes("phone")) {
+      return "You can get in touch with Sai:\n\n• 📧 **Email**: nsai60224@email.com\n• 📞 **Phone**: +91 98765 43210\n• 📸 **Instagram**: [@naturethe_vibes](https://instagram.com/naturethe_vibes) (Cinematic AI Art)\n\nOr feel free to send a message via the **Contact Form** on the website!";
     }
 
     if (query.includes("education") || query.includes("college") || query.includes("degree") || query.includes("btech") || query.includes("vignan")) {
@@ -144,7 +149,7 @@ export default function FunnyRobot() {
       return "Hello! I am Aura AI, Sai's virtual portfolio assistant. Feel free to ask me questions about his technical skills, coding projects, education, or resume!";
     }
 
-    return "Beep! I'm not fully sure how to answer that yet, but I'm learning! 🤖 You can ask me about:\n\n• Sai's **skills**\n• Sai's **projects** (e.g. 'RTO' or 'CrowdWatch')\n• How to **contact** him\n• Downloading his **resume**\n• Or ask me to tell a **joke**!";
+    return "Beep! I'm not fully sure how to answer that yet, but I'm learning! 🤖 You can ask me about:\n\n• Sai's **skills** or **certifications**\n• Sai's **projects** (e.g. 'RTO' or 'CrowdWatch')\n• How to **contact** him\n• Downloading his **resume**\n• Or ask me to tell a **joke**!";
   };
 
   const handleSend = (textToSend: string) => {
