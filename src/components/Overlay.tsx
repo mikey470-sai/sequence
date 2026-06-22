@@ -29,7 +29,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
   return (
     <div className="absolute inset-0 z-10 w-full h-full pointer-events-none select-none">
-      
+
       {/* SECTION 1: HERO */}
       <motion.div
         style={{ opacity: opacity1, y: y1, scale: scale1 }}
@@ -39,7 +39,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           Available for Work
         </span>
         <h1 className="font-display font-black text-5xl md:text-7xl tracking-tight text-white mb-6 leading-none">
-          SAI NAIDU
+          SAI KUMARU NAIDU
         </h1>
         <p className="font-sans text-zinc-400 text-sm md:text-lg tracking-[0.3em] uppercase font-light">
           Full Stack Developer &amp; AI Agent Enthusiast
