@@ -20,13 +20,47 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-zinc-950 overflow-hidden z-20">
+    <section 
+      id="certifications" 
+      className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-zinc-950 overflow-hidden z-20"
+    >
       
+      {/* 3D Perspective Grid Background (Static, No Animation) */}
+      <div 
+        style={{
+          position: "absolute",
+          inset: 0,
+          perspective: "1000px",
+          transformStyle: "preserve-3d",
+          overflow: "hidden",
+          pointerEvents: "none",
+          zIndex: 0
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            width: "200%",
+            height: "200%",
+            top: "-50%",
+            left: "-50%",
+            backgroundImage: `
+              linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(189, 0, 255, 0.02) 1px, transparent 1px)
+            `,
+            backgroundSize: "80px 80px",
+            transform: "rotateX(55deg) translateZ(-160px)",
+            maskImage: "radial-gradient(ellipse at center, black, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent 75%)",
+          }}
+        />
+      </div>
+
       {/* Decorative glows */}
       <div className="absolute top-10 left-10 w-[300px] h-[300px] rounded-full bg-brand-cyan/2 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full bg-brand-purple/2 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="flex items-center gap-6 mb-20">

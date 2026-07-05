@@ -23,6 +23,10 @@
   --foreground: #ffffff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #121212;
   color: #ffffff;

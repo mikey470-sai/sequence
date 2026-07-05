@@ -44,6 +44,14 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
         <p className="font-sans text-zinc-400 text-sm md:text-lg tracking-[0.3em] uppercase font-light">
           Full Stack Developer &amp; AI Agent Enthusiast
         </p>
+        <button
+          onClick={() => {
+            document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="mt-8 px-6 py-3 rounded-full border border-brand-cyan/30 hover:border-brand-cyan bg-brand-cyan/5 hover:bg-brand-cyan/15 text-brand-cyan font-mono text-xs tracking-wider uppercase font-bold transition-all duration-300 pointer-events-auto cursor-pointer shadow-glow-cyan/10 hover:shadow-glow-cyan"
+        >
+          Explore Profile ↴
+        </button>
       </motion.div>
 
       {/* SECTION 2: PROFILE */}

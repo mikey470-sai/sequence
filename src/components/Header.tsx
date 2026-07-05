@@ -41,6 +41,15 @@ export default function Header() {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.startsWith("#") ? href.slice(1) : href;
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
@@ -52,7 +61,11 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group pointer-events-auto">
+        <a 
+          href="#" 
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="flex items-center gap-2 group pointer-events-auto"
+        >
           <span className="font-display font-black text-xl tracking-tighter text-white group-hover:text-brand-cyan transition-colors duration-300">
             SAI<span className="text-brand-cyan">.</span>
           </span>
@@ -64,6 +77,7 @@ export default function Header() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleScrollTo(e, link.href)}
               className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300 relative py-1 group pointer-events-auto"
             >
               {link.name}
@@ -106,6 +120,7 @@ export default function Header() {
           </a>
           <a
             href="#contact"
+            onClick={(e) => handleScrollTo(e, "#contact")}
             className="text-xs font-semibold tracking-wider text-brand-cyan font-mono border border-brand-cyan/30 hover:border-brand-cyan bg-brand-cyan/5 hover:bg-brand-cyan/15 px-4 py-2 rounded-full transition-all duration-300 pointer-events-auto shadow-glow-cyan/10 hover:shadow-glow-cyan"
           >
             GET IN TOUCH
@@ -158,7 +173,7 @@ export default function Header() {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => { setMobileMenuOpen(false); handleScrollTo(e, link.href); }}
               className="text-2xl font-display font-bold text-zinc-300 hover:text-white transition-colors duration-300"
             >
               {link.name}
@@ -174,7 +189,7 @@ export default function Header() {
           </a>
           <a
             href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={(e) => { setMobileMenuOpen(false); handleScrollTo(e, "#contact"); }}
             className="text-sm font-semibold tracking-wider text-brand-cyan font-mono border border-brand-cyan/40 bg-brand-cyan/5 px-6 py-3 rounded-full mt-2"
           >
             GET IN TOUCH

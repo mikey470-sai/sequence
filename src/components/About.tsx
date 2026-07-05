@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Award, BookOpen, CheckCircle, Phone, Trophy } from "lucide-react";
+import { MapPin, Mail, Award, BookOpen, CheckCircle, Phone, Trophy, Video } from "lucide-react";
 import Image from "next/image";
 
 interface SkillItem {
@@ -26,20 +26,20 @@ export default function About() {
     { label: "Degree", value: "B.Tech – Computer Science (2026)", icon: <Award className="w-4 h-4 text-brand-cyan" /> },
     { label: "College", value: "Vignan's Institute of IT", icon: <BookOpen className="w-4 h-4 text-brand-cyan" /> },
     { label: "Location", value: "Visakhapatnam, India", icon: <MapPin className="w-4 h-4 text-brand-cyan" /> },
-    { label: "Target City", value: "Bangalore", icon: <MapPin className="w-4 h-4 text-brand-purple" /> },
+    { label: "Target City", value: "Bangalore,Hyderbad,Coimbatore", icon: <MapPin className="w-4 h-4 text-brand-purple" /> },
     { label: "Email", value: "nsai60224@email.com", icon: <Mail className="w-4 h-4 text-brand-cyan" /> },
-    { label: "Phone", value: "+91 98765 43210", icon: <Phone className="w-4 h-4 text-brand-cyan" /> },
+    { label: "Phone", value: "+91 86399 74773", icon: <Phone className="w-4 h-4 text-brand-cyan" /> },
     { label: "Status", value: "Open to Work ✅", icon: <CheckCircle className="w-4 h-4 text-emerald-400" /> },
   ];
 
   return (
     <section id="about" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-zinc-950 overflow-hidden z-20">
-      
+
       {/* Glow elements */}
       <div className="absolute top-0 right-1/4 w-[400px] h-[400px] rounded-full bg-brand-cyan/5 blur-[120px] pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="flex items-center gap-6 mb-20">
           <span className="font-display font-black text-5xl md:text-7xl text-zinc-900 leading-none">
@@ -58,10 +58,10 @@ export default function About() {
 
         {/* Info Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-32">
-          
+
           {/* Column 1: Profile Photo Card */}
           <div className="lg:col-span-4 flex justify-center w-full">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -77,7 +77,7 @@ export default function About() {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60" />
-              
+
               <div className="absolute bottom-6 left-6 flex flex-col">
                 <span className="text-zinc-500 font-mono text-[10px] tracking-widest uppercase">
                   ROLE
@@ -102,7 +102,7 @@ export default function About() {
                 I am highly passionate about <strong className="text-brand-cyan font-medium">Artificial Intelligence</strong>, <strong className="text-brand-purple font-medium">Machine Learning</strong>, <strong className="text-white font-medium">AI Agents</strong>, and <strong className="text-brand-cyan font-medium">Full Stack Development</strong>. I continuously learn modern technologies and build projects to strengthen my practical skills.
               </p>
               <p>
-                When I'm not coding, I design cinematic AI art and visual content on Instagram. You can follow my creative journey here:
+                When I'm not coding, I design cinematic AI art and edit videos. You can view my video editing portfolio here:
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4 items-center">
@@ -118,17 +118,15 @@ export default function About() {
                 <span>Download Resume</span>
               </a>
 
-              {/* Instagram Link CTA */}
+              {/* Video Portfolio Link CTA */}
               <a
-                href="https://instagram.com/naturethe_vibes"
+                href="https://portifilo-gamma.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors duration-300 font-mono text-xs tracking-wider uppercase border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 px-4 py-3 rounded-full w-fit pointer-events-auto"
               >
-                <svg className="w-4 h-4 text-brand-purple" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" clipRule="evenodd" />
-                </svg>
-                <span>@naturethe_vibes</span>
+                <Video className="w-4 h-4 text-brand-purple" />
+                <span>Video Editing Portfolio</span>
               </a>
             </div>
           </div>
@@ -161,7 +159,7 @@ export default function About() {
 
         {/* SKILLS SUBSECTION */}
         <div id="skills" className="scroll-mt-24">
-          
+
           {/* Sub Header */}
           <div className="flex items-center gap-6 mb-16">
             <span className="font-display font-black text-5xl md:text-7xl text-zinc-900 leading-none">
@@ -200,7 +198,7 @@ export default function About() {
                   </div>
                   <span className="font-mono text-xs text-brand-cyan">{skill.percentage}%</span>
                 </div>
-                
+
                 {/* Custom animated progress bar */}
                 <div className="w-full h-[3px] bg-zinc-900 rounded-full overflow-hidden">
                   <motion.div
