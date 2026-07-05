@@ -90,7 +90,7 @@ export default function FunnyRobot() {
     const query = input.toLowerCase().trim();
     
     if (query.includes("resume") || query.includes("cv") || query.includes("download")) {
-      return "You can download Sai's latest resume by clicking the link below or using the top header button:\n\n📄 **[Sai_Kumaru_Resume.pdf](/Sai_Kumaru_resume.pdf)**\n\nIt outlines his CS background, Python Full Stack credentials, and AI Agent development experience!";
+      return "You can download Sai's latest resume by clicking the link below or using the top header button:\n\n📄 **[Sai_Kumaru_Resume_ai.pdf](/Sai_Kumaru_Resume_ai.pdf)**\n\nIt outlines his CS background, Python Full Stack credentials, and AI Agent development experience!";
     }
     
     if (query.includes("skill") || query.includes("expert") || query.includes("languages") || query.includes("technolog") || query.includes("python") || query.includes("react") || query.includes("flask")) {
