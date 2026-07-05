@@ -52,17 +52,16 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled
           ? "py-4 bg-[#121212]/75 border-b border-zinc-900/60 backdrop-blur-md"
           : "py-6 bg-transparent border-b border-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        
+
         {/* Logo */}
-        <a 
-          href="#" 
+        <a
+          href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="flex items-center gap-2 group pointer-events-auto"
         >
@@ -88,20 +87,18 @@ export default function Header() {
           {/* Theme Toggle Switch */}
           <button
             onClick={toggleTheme}
-            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${
-              theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
-            }`}
+            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
+              }`}
             aria-label="Toggle Theme Mode"
           >
             <Sun className={`w-3 h-3 absolute left-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-30 text-zinc-600" : "opacity-0"}`} />
             <Moon className={`w-3 h-3 absolute right-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-0" : "opacity-30 text-zinc-500"}`} />
-            
+
             <motion.div
               layout
               transition={{ type: "spring", stiffness: 700, damping: 30 }}
-              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${
-                theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
-              }`}
+              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
+                }`}
             >
               {theme === "dark" ? (
                 <Moon className="w-2.5 h-2.5 text-white fill-current" />
@@ -110,9 +107,9 @@ export default function Header() {
               )}
             </motion.div>
           </button>
-          
+
           <a
-            href="/Sai_Kumaru_resume.pdf"
+            href="/Sai_Kumaru_Resume_ai.pdf"
             download
             className="text-xs font-semibold tracking-wider text-brand-purple font-mono border border-brand-purple/30 hover:border-brand-purple bg-brand-purple/5 hover:bg-brand-purple/15 px-4 py-2 rounded-full transition-all duration-300 pointer-events-auto shadow-glow-purple/10 hover:shadow-glow-purple"
           >
@@ -132,20 +129,18 @@ export default function Header() {
           {/* Theme Toggle Switch */}
           <button
             onClick={toggleTheme}
-            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${
-              theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
-            }`}
+            className={`w-12 h-6 rounded-full p-1 border transition-colors duration-300 flex items-center cursor-pointer pointer-events-auto relative focus:outline-none ${theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-zinc-200 border-zinc-300"
+              }`}
             aria-label="Toggle Theme Mode"
           >
             <Sun className={`w-3 h-3 absolute left-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-30 text-zinc-600" : "opacity-0"}`} />
             <Moon className={`w-3 h-3 absolute right-1.5 transition-opacity duration-300 ${theme === "dark" ? "opacity-0" : "opacity-30 text-zinc-500"}`} />
-            
+
             <motion.div
               layout
               transition={{ type: "spring", stiffness: 700, damping: 30 }}
-              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${
-                theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
-              }`}
+              className={`w-4 h-4 rounded-full flex items-center justify-center shadow-md absolute ${theme === "dark" ? "left-1 bg-brand-purple text-white" : "right-1 bg-brand-cyan text-[#121212]"
+                }`}
             >
               {theme === "dark" ? (
                 <Moon className="w-2.5 h-2.5 text-white fill-current" />
@@ -154,7 +149,7 @@ export default function Header() {
               )}
             </motion.div>
           </button>
-          
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
@@ -180,7 +175,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="/Sai_Kumaru_resume.pdf"
+            href="/Sai_Kumaru_Resume_ai.pdf"
             download
             onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-semibold tracking-wider text-brand-purple font-mono border border-brand-purple/40 bg-brand-purple/5 px-6 py-3 rounded-full mt-4"
